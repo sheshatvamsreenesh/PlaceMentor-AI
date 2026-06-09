@@ -1,2 +1,2 @@
 # PlaceMentor-AI
-An AI-Based placement assistance system 
+AI-powered placement preparation platform with skill-gap analysis, resume optimization, mock interviews, and application tracking.
