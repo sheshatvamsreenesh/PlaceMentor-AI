@@ -141,3 +141,31 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# -----------------------------
+# Python
+# -----------------------------
+
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+
+# Flask instance folder
+instance/
+
+# Pytest
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Bytecode
+*.pyc
