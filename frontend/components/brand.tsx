@@ -1,0 +1,27 @@
+import Image from "next/image";
+
+export default function Brand() {
+  return (
+    <div className="flex items-center gap-3">
+      <Image
+        src="/images/logo.svg"
+        alt="PlaceMentor AI Logo"
+        width={48}
+        height={48}
+        priority
+        className="h-10 w-10 md:h-12 md:w-12"
+      />
+
+      <div className="flex flex-col">
+        <h1 className="text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+          PlaceMentor{" "}
+          <span className="text-[#2472CE]">AI</span>
+        </h1>
+
+        <p className="text-xs text-slate-500 md:text-sm">
+          Smart Career Guidance
+        </p>
+      </div>
+    </div>
+  );
+}
