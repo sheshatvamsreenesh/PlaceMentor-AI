@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export default function Brand() {
+export default function Brand({className = ""}) {
   return (
-    <div className="flex items-center gap-3">
+    <div className={`flex items-center gap-3 ${className}`}>
       <Image
         src="/images/logo.svg"
         alt="PlaceMentor AI Logo"
