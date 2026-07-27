@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="128"
+     height="128"
+     viewBox="0 0 128 128"
+     fill="none">
+
+  <!-- Background -->
+  <rect
+      x="8"
+      y="8"
+      width="112"
+      height="112"
+      rx="28"
+      fill="#2472CE"/>
+
+  <!-- Stylized P -->
+  <path
+      d="M46 28V98"
+      stroke="white"
+      stroke-width="10"
+      stroke-linecap="round"/>
+
+  <!-- Pin + P bowl -->
+  <path
+      d="M46 30
+         H67
+         C82 30 92 40 92 54
+         C92 68 82 78 67 78
+         H46"
+      stroke="white"
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+  <!-- Upward arrow -->
+  <path
+      d="M62 60L80 42"
+      stroke="white"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+  <path
+      d="M69 42H80V53"
+      stroke="white"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+  <!-- AI node -->
+  <circle
+      cx="92"
+      cy="28"
+      r="5"
+      fill="#A9D8FF"/>
+
+  <path
+      d="M86 34L76 44"
+      stroke="#A9D8FF"
+      stroke-width="3"
+      stroke-linecap="round"/>
+
+</svg>
