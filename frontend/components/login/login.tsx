@@ -1,5 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import Brand from "../brand";
+import Link from "next/link";
 export default function LoginForm() {
   return (
     <div className="w-full lg:w-1/2 bg-white text-black">
@@ -40,15 +41,17 @@ export default function LoginForm() {
               Sign In
             </button>
           </form>
+          <p className="text-center mt-4 text-gray-600">
+            <Link href="/forgot-password" className="text-[#2472CE] font-semibold hover:underline">
+              Forgot your password?
+            </Link>
+          </p>
 
           <p className="text-center mt-6 text-gray-600">
             Don&apos;t have an account?{" "}
-            <a
-              href="/signup"
-              className="text-[#2472CE] font-semibold hover:underline"
-            >
+            <Link href="/signup" className="text-[#2472CE] font-semibold hover:underline">
               Sign up
-            </a>
+            </Link>
           </p>
 
         </div>
