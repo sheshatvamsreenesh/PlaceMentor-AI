@@ -1,7 +1,30 @@
+"use client";
 import { FcGoogle } from "react-icons/fc";
 import Brand from "../brand";
 import Link from "next/link";
+import React from "react";
+
+import { useState } from "react";
 export default function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const response = await fetch("http://localhost:8000/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+};
   return (
     <div className="w-full lg:w-1/2 bg-white text-black">
       <Brand className="lg:hidden p-4"/>
@@ -21,17 +44,21 @@ export default function LoginForm() {
             <hr className="flex-1" />
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleLogin}>
             <input
               type="email"
               placeholder="Email"
               className="w-full border rounded-lg p-3"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <input
               type="password"
               placeholder="Password"
               className="w-full border rounded-lg p-3"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <button
@@ -59,5 +86,6 @@ export default function LoginForm() {
     </div>
 
   )
+ 
 }
    
