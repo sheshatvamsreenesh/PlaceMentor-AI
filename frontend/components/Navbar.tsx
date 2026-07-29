@@ -12,7 +12,9 @@ export default function Navbar() {
           <li className="cursor-pointer hover:text-blue-600">Home</li>
           <li className="cursor-pointer hover:text-blue-600">Features</li>
           <li className="cursor-pointer hover:text-blue-600">Roadmap</li>
-          <li className="cursor-pointer hover:text-blue-600">About</li>
+          <li className="cursor-pointer hover:text-blue-600">Resume Builder</li>
+          <li className="cursor-pointer hover:text-blue-600">Mock Interviews</li>
+          <li className="cursor-pointer hover:text-blue-600">Dashboard</li>
           <li className="cursor-pointer hover:text-blue-600">Contact</li>
         </ul>
 
