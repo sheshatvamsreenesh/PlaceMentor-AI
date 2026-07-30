@@ -11,10 +11,12 @@ export default function RegisterForm() {
     const [passoutYear, setPassoutYear] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState("");
+    const [course, setCourse] = React.useState("");
     const [error, setError] = React.useState("");
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError("");
+
         // Full Name
         if (!fullName.trim()) {
             setError("Full name is required");
@@ -86,6 +88,7 @@ export default function RegisterForm() {
             passoutYear,
             password,
             confirmPassword,
+            course,
         }),
         });
 
@@ -179,12 +182,31 @@ export default function RegisterForm() {
                             Branch
                             </label>
 
-                            <input
-                            type="text"
-                            placeholder="Computer Science"
-                            className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:outline-none"
+                            <select
+                            className="w-full rounded-lg border border-gray-300 text-gray-700 px-4 py-3 focus:border-blue-500 focus:outline-none"
                             value={branch}
                             onChange={(e) => setBranch(e.target.value)}
+                            >
+                                <option value="" disabled>
+                                    Select Course
+                                </option>
+                                <option value="Btech/Be">BTech/BE</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BBA">BBA</option>
+                                <option value="BCom">BCom</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-700">
+                                course
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Computer Science"
+                                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-700 focus:border-blue-500 focus:outline-none"
+                                value={course}
+                                onChange={(e) => setCourse(e.target.value)}
                             />
                         </div>
 
