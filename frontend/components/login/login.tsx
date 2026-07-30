@@ -8,8 +8,29 @@ import { useState } from "react";
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+  setError("");
+
+  // Validate email
+  if (!email.trim()) {
+    setError("Email is required");
+    return;
+  }
+
+  const emailRegex = /\S+@\S+\.\S+/;
+  if (!emailRegex.test(email)) {
+    setError("Please enter a valid email address");
+    return;
+  }
+
+  // Validate password
+  if (!password.trim()) {
+    setError("Password is required");
+    return;
+  }
+
   const response = await fetch("http://localhost:8000/auth/login", {
     method: "POST",
     headers: {
@@ -45,6 +66,11 @@ export default function LoginForm() {
           </div>
 
           <form className="space-y-4" onSubmit={handleLogin}>
+            {error && (
+              <p className="text-red-500 text-sm mt-2">
+                {error}
+              </p>
+            )}
             <input
               type="email"
               placeholder="Email"
