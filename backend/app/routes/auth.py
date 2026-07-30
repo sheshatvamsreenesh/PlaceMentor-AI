@@ -1,6 +1,5 @@
-from fastapi import APIRouter,HTTPException
+from fastapi import APIRouter
 from app.schemas.auth import LoginRequest, RegisterRequest
-import re
 
 router = APIRouter(
     prefix="/auth",
