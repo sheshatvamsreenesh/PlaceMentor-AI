@@ -16,65 +16,95 @@ export default function RegisterForm() {
         e.preventDefault();
         setError("");
         // Full Name
-  if (!fullName.trim()) {
-    setError("Full name is required");
-    return;
-  }
+        if (!fullName.trim()) {
+            setError("Full name is required");
+            return;
+        }
 
-  // Email
-  if (!email.trim()) {
-    setError("Email is required");
-    return;
-  }
+        // Email
+        if (!email.trim()) {
+            setError("Email is required");
+            return;
+        }
 
-  const emailRegex = /\S+@\S+\.\S+/;
+        const emailRegex = /\S+@\S+\.\S+/;
 
-  if (!emailRegex.test(email)) {
-    setError("Please enter a valid email address");
-    return;
-  }
+        if (!emailRegex.test(email)) {
+            setError("Please enter a valid email address");
+            return;
+        }
 
-  // College Name
-  if (!collegeName.trim()) {
-    setError("College name is required");
-    return;
-  }
+        // College Name
+        if (!collegeName.trim()) {
+            setError("College name is required");
+            return;
+        }
 
-  // Branch
-  if (!branch) {
-    setError("Please select your branch");
-    return;
-  }
+        // Branch
+        if (!branch) {
+            setError("Please select your branch");
+            return;
+        }
 
-  // Passout Year
-  if (!passoutYear) {
-    setError("Please select your passout year");
-    return;
-  }
+        // Passout Year
+        if (!passoutYear) {
+            setError("Please select your passout year");
+            return;
+        }
 
-  // Password
-  if (!password.trim()) {
-    setError("Password is required");
-    return;
-  }
+        // Password
+        if (!password.trim()) {
+            setError("Password is required");
+            return;
+        }
 
-  if (password.length < 8) {
-    setError("Password must be at least 8 characters long");
-    return;
-  }
+        if (password.length < 8) {
+            setError("Password must be at least 8 characters long");
+            return;
+        }
 
-  // Confirm Password
-  if (!confirmPassword.trim()) {
-    setError("Please confirm your password");
-    return;
-  }
+        // Confirm Password
+        if (!confirmPassword.trim()) {
+            setError("Please confirm your password");
+            return;
+        }
 
-  if (password !== confirmPassword) {
-    setError("Passwords do not match");
-    return;
-  }
-}
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+        const response = await fetch("http://localhost:8000/auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            fullName,
+            email,
+            collegeName,
+            branch,
+            passoutYear,
+            password,
+            confirmPassword,
+        }),
+        });
 
+        const data = await response.json();
+
+        if (!response.ok) {
+            if (Array.isArray(data.detail)) {
+                const errors = data.detail.map(
+                (error: { msg: string }) => error.msg
+                );
+
+                setError(errors.join("\n"));
+            } else {
+                setError(data.detail);
+            }
+
+        return;
+        }
+    }
 
     return (
         <div className="w-full lg:w-1/2 bg-white text-black">

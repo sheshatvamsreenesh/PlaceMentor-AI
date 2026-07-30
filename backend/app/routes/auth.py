@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,HTTPException
 from app.schemas.auth import LoginRequest, RegisterRequest
+import re
 
 router = APIRouter(
     prefix="/auth",
@@ -16,12 +17,4 @@ def login(user: LoginRequest):
 
 @router.post("/register")
 def register(user: RegisterRequest):
-    print(user.full_name)
-    print(user.email)
-    print(user.college_name)
-    print(user.branch)
-    print(user.passout_year)
-    print(user.password)
-    print(user.confirm_password)
-
     return {"message": "Registration successful"}
