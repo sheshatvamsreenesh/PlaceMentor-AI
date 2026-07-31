@@ -40,17 +40,24 @@ export default function RegisterForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+              full_name: data.fullName,
+              email: data.email,
+              college_name: data.collegeName,
+              branch: data.branch,
+              passout_year: data.passoutYear,
+              password: data.password,
+              confirm_password: data.confirmPassword,
+            }),
       });
 
       const responseData = await response.json();
 
-      if (!response.ok) {
-        // Handle backend errors
-        console.error(responseData);
-        return;
-      }
-
+    if (!response.ok) {
+    alert(JSON.stringify(responseData));
+    console.error(responseData);
+    return;
+}
       // Success - redirect to login (or wherever makes sense)
       router.push("/login");
     } catch (err) {
