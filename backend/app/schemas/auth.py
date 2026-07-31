@@ -11,4 +11,3 @@ class RegisterRequest(BaseModel):
     passout_year: int
     password: str
     confirm_password: str
-    
