@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, func
 from app.database.database import Base
-from datetime import datetime, UTC
+
 
 class OTP(Base):
     __tablename__ = "otp_codes"
@@ -9,5 +9,6 @@ class OTP(Base):
 
     email = Column(String, nullable=False)
     otp_code = Column(String, nullable=False)
-    created_at = Column(DateTime(timezone=True), nullable=False, default=datetime.now(UTC))
+    purpose = Column(String, nullable=False, default="registration")
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     expires_at = Column(DateTime(timezone=True), nullable=False)

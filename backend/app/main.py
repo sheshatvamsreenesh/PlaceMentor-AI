@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database.database import Base, engine
 from app.models.user import User
+from app.models.OTP_codes import OTP
+from app.models.pending_registrations import Registration
 from app.routes.auth import router as auth_router
 from app.routes.limiter import limiter
 

@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, func
 from app.database.database import Base
-from datetime import datetime, UTC
+
 class Registration(Base):
     __tablename__ = "pending_registrations"
 
@@ -13,4 +13,5 @@ class Registration(Base):
     course = Column(String, nullable=False)
     passout_year = Column(Integer, nullable=False)
     hash_password = Column(String, nullable=False)
-    created_at = Column(DateTime(timezone=True), nullable=False, default=datetime.now(UTC))
+    created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
