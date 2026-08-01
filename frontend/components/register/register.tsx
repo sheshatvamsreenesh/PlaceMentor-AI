@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import z from "zod";
+import { z }  from "zod";
 
 const registerSchema = z
   .object({
@@ -14,7 +14,7 @@ const registerSchema = z
     collegeName: z.string().min(2, "College name must be at least 2 characters long").max(100),
     course: z.string().min(2, "Course must be at least 2 characters long").max(100),
     branch: z.string().min(2, "Branch must be at least 2 characters long").max(100),
-    passoutYear: z.string().regex(/^(19|20)\d{2}$/, "Please enter a valid year (e.g., 2020)"),
+    passoutYear: z.coerce.number().min(2025, "Please enter a valid year ").max(2035, "Please enter a valid year"),
     password: z.string().min(8, "Password must be at least 8 characters long"),
     confirmPassword: z.string().min(8, "Password must be at least 8 characters long"),
   })
@@ -23,17 +23,15 @@ const registerSchema = z
     path: ["confirmPassword"],
   });
 
-type RegisterForm = z.infer<typeof registerSchema>;
-
 export default function RegisterForm() {
   const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<RegisterForm>({ resolver: zodResolver(registerSchema) });
+  } = useForm({ resolver: zodResolver(registerSchema) });
 
-  const handleRegister = async (data: RegisterForm) => {
+  const handleRegister = async (data: z.output<typeof registerSchema>) => {
     try {
       const response = await fetch("http://localhost:8000/auth/register", {
         method: "POST",
@@ -53,11 +51,16 @@ export default function RegisterForm() {
 
       const responseData = await response.json();
 
-    if (!response.ok) {
-    alert(JSON.stringify(responseData));
-    console.error(responseData);
-    return;
-}
+      if (!response.ok) {
+        // Handle backend errors
+        if (response.status === 422) {
+          alert("Something went wrong. Please try again.");
+          return;
+        }
+        console.error(responseData);
+        return;
+      }
+
       // Success - redirect to login (or wherever makes sense)
       router.push("/login");
     } catch (err) {
