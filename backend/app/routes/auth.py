@@ -7,7 +7,7 @@ from app.models.pending_registrations import Registration
 from app.schemas.auth import LoginRequest, RegisterRequest
 from app.routes.limiter import limiter
 from app.utils.security import hash_password
-import secrets
+from app.utils.otp import send_otp
 from datetime import datetime, UTC, timedelta
 
 def get_db():
@@ -53,7 +53,6 @@ def register(
         existing_registration.passout_year = user.passout_year
         existing_registration.hash_password = hashed_password
         db.commit()
-        db.refresh(existing_registration)
     else:
         new_registration = Registration(
             full_name=user.full_name,
@@ -66,14 +65,9 @@ def register(
         )
         db.add(new_registration)
         db.commit()
-        db.refresh(new_registration)
+        send_otp(user.email, "registration", db)
     
-    otp = f"{secrets.randbelow(1000000):06d}"
-    expiry_time = datetime.now(UTC) + timedelta(minutes=5)
-    otp_entry = OTP(email=user.email, otp_code=otp, expires_at=expiry_time)
-    db.add(otp_entry)
-    db.commit()
-    
+
 
 
 
