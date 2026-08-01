@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from app.database.database import SessionLocal
 from app.models.user import User
 from app.schemas.auth import LoginRequest, RegisterRequest
+from app.routes.limiter import limiter
 
 def get_db():
     db = SessionLocal()
@@ -18,14 +19,20 @@ router = APIRouter(
 
 
 @router.post("/login")
-def login(user: LoginRequest):
+@limiter.limit("5/minute")  # Limit to 5 requests per minute
+def login(request: Request, user: LoginRequest):
     print(user.email)
     print(user.password)
 
     return {"message": "Login successful"}
 
 @router.post("/register")
-def register(user: RegisterRequest, db: Session = Depends(get_db)):
+@limiter.limit("3/minute")  # Limit to 3 requests per minute
+def register(
+    request: Request,
+    user: RegisterRequest,
+    db: Session = Depends(get_db)
+):
 
     new_user = User(
         full_name=user.full_name,

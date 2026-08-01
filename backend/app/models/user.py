@@ -9,5 +9,6 @@ class User(Base):
     email = Column(String, unique=True, nullable=False)
     college_name = Column(String, nullable=False)
     branch = Column(String, nullable=False)
+    course = Column(String, nullable=False)
     passout_year = Column(Integer, nullable=False)
-    password = Column(String, nullable=False)
+    hash_password = Column(String, nullable=False)
