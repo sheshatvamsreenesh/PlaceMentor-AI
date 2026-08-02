@@ -52,7 +52,7 @@ def register(
         existing_registration.course = user.course
         existing_registration.passout_year = user.passout_year
         existing_registration.hash_password = hashed_password
-        db.commit()
+        
     else:
         new_registration = Registration(
             full_name=user.full_name,
@@ -64,9 +64,10 @@ def register(
             hash_password=hashed_password
         )
         db.add(new_registration)
-        db.commit()
-        send_otp(user.email, "registration", db)
-    
+
+    db.commit()
+    send_otp(user.email, "registration", db)
+    return {"message": "OTP Sent Successfully"}
 
 
 
