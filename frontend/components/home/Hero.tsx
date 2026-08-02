@@ -1,8 +1,10 @@
+import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2">
+    <section className="w-full max-w-[1600px] mx-auto px-4 pt-18 pb-16">
       {/* Left Side */}
-      <div className="max-w-2xl">
+      <div className="flex w-full items-start gap-16">
+        <div className="w-[58%]">
         {/* Trust Badge */}
         <div className="inline-flex items-center gap-3 rounded-full border border-blue-100 bg-blue-50 px-5 py-2 text-sm font-medium text-blue-700">
           <span className="h-3 w-3 rounded-full bg-green-400"></span>
@@ -55,13 +57,96 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Right Side - Temporary Placeholder */}
-      <div className="flex items-center justify-center lg:justify-end">
-        <div className="flex h-[520px] w-full max-w-[560px] items-center justify-center rounded-3xl bg-gray-100 shadow-lg">
-          <p className="text-lg font-medium text-gray-400">
-            Hero Image Placeholder
+    {/* Right Side - Hero Image */}
+    <div className="w-[42%] -ml-6 mt-4 flex justify-start">
+      <div className="relative mt-10 h-[490px] w-full max-w-[620px] overflow-visible">
+
+    {/* Hero Image */}
+    <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-lg">
+      <Image
+        src="/images/Placementor_AI_img.webp"
+        alt="Students preparing for placements"
+        fill
+        sizes="(max-width:1024px) 100vw, 560px"
+        className="object-cover object-[55%_50%]"
+        priority
+      />
+    </div>
+
+    {/* Top Left Card */}
+    <div className="absolute -top-2 -left-4 rounded-2xl border border-gray-100 bg-white px-5 py-4 shadow-2xl">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-xl">
+          💻
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-gray-900">
+            Coding Practice
+          </p>
+          <p className="text-xs text-gray-500">
+            520+ Questions
           </p>
         </div>
+      </div>
+    </div>
+
+    {/* Middle Right Card */}
+    <div className="absolute top-36 -right-14 rounded-2xl border border-gray-100 bg-white px-5 py-4 shadow-2xl">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-xl">
+          🛣️
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-gray-900">
+            Company Roadmaps
+          </p>
+          <p className="text-xs text-gray-500">
+            18 Companies
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Left Card */}
+    <div className="absolute bottom-5 left-5 rounded-2xl bg-slate-900 px-6 py-4 text-white shadow-2xl">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-500">
+          📈
+        </div>
+        <div>
+          <p className="text-xs text-green-300 uppercase tracking-wide">
+            Placement Ready
+          </p>
+          <p className="text-lg font-bold">
+            Learning Path
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Right Card */}
+    <div className="absolute bottom-3 -right-10 rounded-2xl bg-white px-5 py-4 shadow-2xl border border-gray-100">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100 text-xl">
+          📄
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-gray-900">
+            Resume ATS
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold">
+              88/100
+            </span>
+            <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
+              PASSED
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </section>
   );
