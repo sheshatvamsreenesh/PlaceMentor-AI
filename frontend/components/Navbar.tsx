@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white">
-      <div className="mx-auto w-full max-w-[1600px] flex items-center justify-between px-4 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Brand />
 
@@ -26,7 +26,9 @@ export default function Navbar() {
           <li className="cursor-pointer hover:text-blue-600">Features</li>
           <li className="cursor-pointer hover:text-blue-600">Roadmap</li>
           <li className="cursor-pointer hover:text-blue-600">Resume Builder</li>
-          <li className="cursor-pointer hover:text-blue-600"> Mock Interviews</li>
+          <li className="cursor-pointer hover:text-blue-600">
+            Mock Interviews
+          </li>
           <li className="cursor-pointer hover:text-blue-600">Dashboard</li>
           <li className="cursor-pointer hover:text-blue-600">Contact</li>
         </ul>
@@ -39,12 +41,12 @@ export default function Navbar() {
           >
             {/* Avatar */}
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-semibold text-white">
-              U
+              PD
             </div>
 
             {/* User Info */}
             <div className="hidden text-left md:block">
-              <h3 className="font-semibold text-gray-900">User</h3>
+              <h3 className="font-semibold text-gray-900">Pro Demo</h3>
               <p className="text-sm text-gray-500">Pro Plan</p>
             </div>
 
@@ -100,3 +102,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
