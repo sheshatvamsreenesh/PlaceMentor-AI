@@ -2,19 +2,16 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/home/Hero";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import LearningJourney from "@/components/home/LearningJourney";
-import WhyChoose from "@/components/home/WhyChoose";
+import Whychoose from "@/components/home/Whychoose";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-
-      <main>
-        <Hero />
-        <FeaturesSection />
-        <LearningJourney />
-        <WhyChoose />
-      </main>
+      <Hero />
+      <FeaturesSection />
+      <LearningJourney />
+      <Whychoose />
     </>
   );
 }
