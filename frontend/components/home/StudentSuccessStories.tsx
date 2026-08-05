@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Star,
   Quote,
@@ -14,7 +13,6 @@ const testimonials = [
     college: "SRM Institute of Science & Tech",
     company: "TCS Digital",
     package: "₹7.2 LPA",
-    image: "https://i.pravatar.cc/150?img=32",
     review:
       '"Having everything organized in one platform made my placement preparation much easier. The company-specific roadmaps gave me exact insights into TCS NQT coding question formats."',
   },
@@ -23,7 +21,6 @@ const testimonials = [
     college: "Vellore Institute of Technology",
     company: "Deloitte Analyst",
     package: "₹8.5 LPA",
-    image: "https://i.pravatar.cc/150?img=13",
     review:
       '"I loved the structured roadmap and progress tracking. Practicing mock interviews with the interactive framework boosted my confidence before Deloitte consulting interviews."',
   },
@@ -32,7 +29,6 @@ const testimonials = [
     college: "PSG College of Technology",
     company: "Infosys DSE",
     package: "₹6.5 LPA",
-    image: "https://i.pravatar.cc/150?img=47",
     review:
       '"The mock interview practice boosted my confidence before campus placements. The ATS resume builder highlighted keywords I was missing, helping me pass screening on day 1!"',
   },
@@ -91,14 +87,9 @@ export default function StudentSuccessStories() {
 
               {/* Profile */}
               <div className="flex items-center gap-4">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={64}
-                  height={64}
-                  className="rounded-full border-2 border-blue-500"
-                />
-
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-blue-50 text-2xl font-bold text-blue-600">
+                  {item.name.charAt(0)}
+                </div>
                 <div className="flex-1">
                   <h3 className="text-[24px] font-bold text-slate-900">
                     {item.name}
