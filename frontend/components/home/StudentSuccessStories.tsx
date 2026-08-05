@@ -36,7 +36,7 @@ const testimonials = [
 
 export default function StudentSuccessStories() {
   return (
-    <section className="bg-white py-28">
+    <section className="bg-white pt-12 pb-24">
       <div className="mx-auto max-w-[1400px] px-6">
         {/* Badge */}
         <div className="flex justify-center">
@@ -46,7 +46,7 @@ export default function StudentSuccessStories() {
         </div>
 
         {/* Heading */}
-        <h2 className="mx-auto mt-8 max-w-5xl text-center text-[58px] font-extrabold leading-tight tracking-[-0.03em] text-slate-900">
+        <h2 className="mx-auto mt-8 max-w-7xl text-center text-[56px] font-extrabold leading-tight tracking-[-0.03em] text-slate-900">
           Real Stories from Placed Students
         </h2>
 
