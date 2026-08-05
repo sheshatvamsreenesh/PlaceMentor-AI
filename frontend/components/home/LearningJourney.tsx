@@ -79,8 +79,8 @@ const steps = [
 
 export default function LearningJourney() {
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-[1500px] px-6">
+    <section className="bg-white pt-24 pb-12">
+      <div className="mx-auto max-w-[1600px] px-6">
 
         <div className="flex justify-center">
           <span className="rounded-full bg-emerald-100 px-8 py-2 text-[13px] font-bold uppercase tracking-[0.18em] text-emerald-700">
@@ -88,17 +88,17 @@ export default function LearningJourney() {
           </span>
         </div>
 
-        <h2 className="mx-auto mt-8 max-w-5xl text-center text-5xl font-extrabold tracking-tight text-slate-900 lg:text-[64px]">
+        <h2 className="mx-auto mt-8 max-w-7xl text-center text-5xl font-extrabold tracking-tight text-slate-900 lg:text-[60px]">
           Your Structured Learning Journey
         </h2>
 
-        <p className="mx-auto mt-7 max-w-4xl text-center text-[26px] leading-relaxed text-slate-600 lg:text-[20px]">
+        <p className="mx-auto mt-7 max-w-4xl text-center text-lg leading-relaxed text-slate-600 lg:text-xl">
           Follow a clear, proven pathway designed to turn fresh engineering &
           college graduates into high-value corporate hires.
         </p>
 
         {/* Desktop */}
-        <div className="mt-20 hidden justify-center lg:flex">
+        <div className="mt-16 hidden justify-between lg:flex">
 
           {steps.map((item, index) => {
             const Icon = item.icon;
@@ -109,7 +109,7 @@ export default function LearningJourney() {
                 className="flex items-center"
               >
                 <div
-                  className={`relative flex h-[320px] w-[176px] flex-col items-center rounded-[24px] border px-5 pt-6 pb-6 text-center shadow-[0_8px_24px_rgba(15,23,42,0.06)]
+                  className={`relative flex h-[320px] w-full max-w-[176px] flex-col items-center rounded-[24px] border px-5 pt-6 pb-6 text-center shadow-[0_8px_24px_rgba(15,23,42,0.06)]
                   ${
                     item.highlight
                       ? "border-emerald-400 bg-gradient-to-b from-emerald-50 to-white"

@@ -48,18 +48,18 @@ const features = [
 export default function WhyChoose() {
   return (
     <section className="bg-white py-28">
-      <div className="mx-auto max-w-[1380px] px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <div className="inline-flex rounded-full bg-indigo-100 px-6 py-2 text-[13px] font-bold uppercase tracking-[0.18em] text-indigo-700">
             BUILT FOR FRESH GRADUATES
           </div>
 
-          <h2 className="mt-7 text-[56px] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900">
+          <h2 className="mt-7 text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900">
             Why Choose PlaceMentor AI?
           </h2>
 
-          <p className="mx-auto mt-7 max-w-3xl text-[22px] leading-10 text-slate-600">
+          <p className="mx-auto mt-7 max-w-3xl text-lg lg:text-xl leading-8 text-slate-600">
             Built specifically to solve the fragmented preparation experience
             college students face during campus drives.
           </p>
@@ -73,7 +73,7 @@ export default function WhyChoose() {
             return (
               <div
                 key={item.title}
-                className="flex h-[460px] flex-col rounded-[26px] border border-slate-200 bg-white px-8 py-8 shadow-[0_12px_35px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
+                className="flex h-[400px] flex-col rounded-[26px] border border-slate-200 bg-white px-8 py-8 shadow-[0_12px_35px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
               >
                 {/* Icon */}
                 <div
@@ -83,12 +83,12 @@ export default function WhyChoose() {
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-8 text-[22px] font-bold leading-tight text-slate-900">
+                <h3 className="mt-6 text-xl font-bold leading-tight text-slate-900">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-6 flex-1 text-[18px] leading-9 text-slate-600">
+                <p className="mt-4 flex-1 text-base leading-7 text-slate-600">
                   {item.description}
                 </p>
 
@@ -98,7 +98,7 @@ export default function WhyChoose() {
                   <div className="border-t border-slate-200" />
 
                   {/* Verified Badge */}
-                  <div className="mt-7 flex items-center gap-2 text-[17px] font-semibold text-emerald-600">
+                  <div className="mt-4 flex items-center gap-2 text-base font-semibold text-emerald-600">
                     <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
                     <span className="whitespace-nowrap">
                       100% Verified Method

@@ -1,10 +1,10 @@
 import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="w-full max-w-[1600px] mx-auto px-4 pt-18 pb-16">
+    <section className="w-full max-w-[1450px] mx-auto px-6 pt-18 pb-16">
       {/* Left Side */}
-      <div className="flex w-full items-start gap-16">
-        <div className="w-[58%]">
+      <div className="flex w-full items-start gap-12">
+        <div className="w-[57%]">
         {/* Trust Badge */}
         <div className="inline-flex items-center gap-3 rounded-full border border-blue-100 bg-blue-50 px-5 py-2 text-sm font-medium text-blue-700">
           <span className="h-3 w-3 rounded-full bg-green-400"></span>
@@ -12,7 +12,7 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="mt-8 text-6xl font-extrabold leading-tight text-gray-900">
+        <h1 className="mt-5 text-5xl xl:text-6xl font-extrabold leading-[1.1] text-gray-900">
           Your Complete
           <br />
           <span className="text-blue-600">Placement Preparation</span>
@@ -21,7 +21,7 @@ export default function Hero() {
         </h1>
 
         {/* Description */}
-        <p className="mt-8 max-w-xl text-xl leading-9 text-gray-600">
+        <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
           Everything you need to prepare for placements—from aptitude and
           coding to resume building, mock interviews, company roadmaps, and
           progress tracking—all in one place.
@@ -58,8 +58,8 @@ export default function Hero() {
       </div>
 
     {/* Right Side - Hero Image */}
-    <div className="w-[42%] -ml-6 mt-4 flex justify-start">
-      <div className="relative mt-10 h-[490px] w-full max-w-[620px] overflow-visible">
+    <div className="w-[42%] mt-2 flex justify-start">
+      <div className="relative mt-6 h-[440px] w-full max-w-[600px] overflow-visible">
 
     {/* Hero Image */}
     <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-lg">
