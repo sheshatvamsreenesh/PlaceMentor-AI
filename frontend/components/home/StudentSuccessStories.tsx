@@ -10,25 +10,25 @@ import {
 const testimonials = [
   {
     name: "Ananya Sharma",
-    college: "SRM Institute of Science & Tech",
+    college: "VIT Chennai",
     company: "TCS Digital",
     package: "₹7.2 LPA",
     review:
-      '"Having everything organized in one platform made my placement preparation much easier. The company-specific roadmaps gave me exact insights into TCS NQT coding question formats."',
+      '"Having everything organized in one platform made my placement preparation much easier. The company-specific roadmaps gave me clear insights into TCS NQT patterns."',
   },
   {
     name: "Karthik Raja",
-    college: "Vellore Institute of Technology",
+    college: "NIE Mysore",
     company: "Deloitte Analyst",
-    package: "₹8.5 LPA",
+    package: "₹15.9 LPA",
     review:
       '"I loved the structured roadmap and progress tracking. Practicing mock interviews with the interactive framework boosted my confidence before Deloitte consulting interviews."',
   },
   {
-    name: "Priya Nambiar",
-    college: "PSG College of Technology",
+    name: "Priya V",
+    college: "Jain University",
     company: "Infosys DSE",
-    package: "₹6.5 LPA",
+    package: "₹25.5 LPA",
     review:
       '"The mock interview practice boosted my confidence before campus placements. The ATS resume builder highlighted keywords I was missing, helping me pass screening on day 1!"',
   },
@@ -51,17 +51,17 @@ export default function StudentSuccessStories() {
         </h2>
 
         {/* Subtitle */}
-        <p className="mx-auto mt-6 max-w-3xl text-center text-[22px] leading-[40px] text-slate-600">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-[22px] leading-[40px] text-slate-600">
           Hear how college students secured high-paying engineering and
           consulting roles using PlaceMentor AI.
         </p>
 
         {/* Cards */}
-        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((item) => (
             <div
               key={item.name}
-              className="flex h-[420px] flex-col rounded-[28px] border border-slate-200 bg-white p-8 shadow-[0_10px_35px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]"
+              className="flex min-h-[400px] flex-col rounded-[28px] border border-slate-200 bg-white p-8 shadow-[0_10px_35px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(15,23,42,0.12)]"
             >
               {/* Top */}
               <div className="flex items-start justify-between">
@@ -74,19 +74,21 @@ export default function StudentSuccessStories() {
                   ))}
                 </div>
 
-                <Quote className="h-9 w-9 text-sky-100" />
+                <Quote className="h-9 w-9 text-slate-200" />
               </div>
 
               {/* Review */}
-              <p className="mt-8 flex-1 text-[18px] italic leading-[42px] text-slate-800">
-                {item.review}
-              </p>
+              <div className="mt-5 h-[200px]">
+               <p className="flex-1 line-clamp-5 text-[18px] italic leading-[28px] text-slate-800">
+                  {item.review}
+                </p>
+              </div>
 
               {/* Divider */}
-              <div className="my-8 border-t border-slate-200" />
+              
 
               {/* Profile */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-2">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-blue-500 bg-blue-50 text-2xl font-bold text-blue-600">
                   {item.name.charAt(0)}
                 </div>
