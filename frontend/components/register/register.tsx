@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import Brand from "../brand";
 import Link from "next/link";
-import React from "react";
+import  { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { z }  from "zod";
@@ -30,6 +30,7 @@ export default function RegisterForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({ resolver: zodResolver(registerSchema) });
+  const [serverError, setServerError] = useState("");
 
   const handleRegister = async (data: z.output<typeof registerSchema>) => {
     try {
@@ -42,31 +43,27 @@ export default function RegisterForm() {
               full_name: data.fullName,
               email: data.email,
               college_name: data.collegeName,
+              course: data.course,
               branch: data.branch,
               passout_year: data.passoutYear,
               password: data.password,
               confirm_password: data.confirmPassword,
-            }),
-      });
+            }),})
+    const result = await response.json();
 
-      const responseData = await response.json();
-
-      if (!response.ok) {
-        // Handle backend errors
-        if (response.status === 422) {
-          alert("Something went wrong. Please try again.");
+        if (!response.ok) {
+          // Show backend error
+          setServerError(result.detail);
           return;
         }
-        console.error(responseData);
-        return;
-      }
+        localStorage.setItem("pendingEmail", data.email);
+        router.push("/verify-otp");
+      } catch (error) {
+        console.error("Error during registration:", error);
+        setServerError("An error occurred during registration. Please try again.");
+      }}
 
-      // Success - redirect to login (or wherever makes sense)
-      router.push("/login");
-    } catch (err) {
-      console.error("Registration failed:", err);
-    }
-  };
+      
 
   return (
     <div className="w-full lg:w-1/2 bg-white text-black">
@@ -84,7 +81,9 @@ export default function RegisterForm() {
               Sign in instead
             </Link>
           </p>
-
+          {serverError && (
+              <p className="text-red-500 text-sm">{serverError}</p>
+            )}
           <form className="space-y-5" onSubmit={handleSubmit(handleRegister)}>
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-700">
