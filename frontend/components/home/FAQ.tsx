@@ -11,24 +11,32 @@ const faqs = [
   },
   {
     question: "Can beginners with zero prior preparation use this platform?",
-    answer: "",
+    answer:
+     "Absolutely! Our roadmaps start from basic Quantitative Aptitude and beginner C++/Java programming and progressively build up to advanced Data Structures, Dynamic Programming, and System Design.",
   },
   {
     question: "Does it include hands-on coding practice with full problem sets?",
-    answer: "",
+    answer: 
+    "Yes, PlaceMentor AI features over 500+ handpicked placement questions categorized by data structure types with solution walk-throughs in JavaScript, Python, C++, and Java.",
+
   },
   {
     question: "Can I build and download an ATS-friendly resume directly?",
-    answer: "",
+    answer:
+     "Yes! Our Resume Builder uses clean ATS single-column templates tested with major applicant tracking software. You can edit live, calculate your ATS score, and download or print instantly.",
+
   },
   {
     question: "How are mock interviews conducted on PlaceMentor AI?",
-    answer: "",
+    answer:
+     "You can practice simulated mock interviews covering HR, Technical, Behavioral, and Group Discussion scenarios. You get structured response models based on the STAR method and interactive self-evaluation rubrics.",
+
   },
   {
     question:
       "Are company roadmaps updated according to the latest recruitment patterns?",
-    answer: "",
+    answer: 
+    "Yes, our team constantly updates company profiles for TCS, Infosys, Accenture, Cognizant, Deloitte, Capgemini, and leading tech employers after every hiring season.",
   },
 ];
 
