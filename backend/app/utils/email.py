@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 load_dotenv()
 
 
-def send_email(to_email: str, subject: str, body: str, db: Session):
+def send_email(to_email: str, subject: str, body: str):
     EMail = os.getenv("EMAIL")
     EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 

@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full border-b border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-[1380px] items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-345 items-center justify-between px-6 py-5">
       <div className="relative -left-10">
           <Brand />
       </div>

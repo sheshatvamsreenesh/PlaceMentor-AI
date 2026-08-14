@@ -40,24 +40,32 @@ export default function RegisterForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-              full_name: data.fullName,
+              fullName: data.fullName,
               email: data.email,
-              college_name: data.collegeName,
+              collegeName: data.collegeName,
               course: data.course,
               branch: data.branch,
-              passout_year: data.passoutYear,
+              passoutYear: data.passoutYear,
               password: data.password,
-              confirm_password: data.confirmPassword,
+              confirmPassword: data.confirmPassword,
             }),})
     const result = await response.json();
-
+    console.log("REGISTER STATUS:", response.status);
+    console.log("REGISTER RESPONSE:", result);
         if (!response.ok) {
-          // Show backend error
-          setServerError(result.detail);
+          if (Array.isArray(result.detail)) {
+            const messages = result.detail.map(
+              (error: { msg: string }) => error.msg
+            );
+
+            setServerError(messages.join("\n"));
+          } else {
+            setServerError(result.detail || "Registration failed.");
+          }
           return;
         }
-        localStorage.setItem("pendingEmail", data.email);
-        router.push("/verify-otp");
+        sessionStorage.setItem("pendingEmail", data.email);
+        router.push(`/register/otp?email=${encodeURIComponent(data.email)}`);
       } catch (error) {
         console.error("Error during registration:", error);
         setServerError("An error occurred during registration. Please try again.");
