@@ -1,7 +1,9 @@
 
+from urllib import response
+
 from sqlalchemy import func
 from sqlalchemy.orm import Session
-from fastapi import APIRouter, Depends, Request, HTTPException
+from fastapi import APIRouter, Depends, Request, HTTPException, Response
 from app.database.database import SessionLocal
 from app.models.user import User
 from app.models.OTP_codes import OTP
@@ -10,6 +12,7 @@ from app.schemas.auth import LoginRequest, RegisterRequest, SendOTPRequest, Veri
 from app.routes.limiter import limiter
 from app.utils.security import hash_password
 from app.utils.otp import send_otp
+from app.utils.jwt import create_access_token, create_refresh_token, verify_token
 from datetime import datetime, UTC, timedelta, timezone
 
 def get_db():
@@ -89,7 +92,7 @@ def send_otp_route(request: Request, otp_request: SendOTPRequest, db: Session = 
 
 @router.post("/verify-otp")
 @limiter.limit("5/minute")  # Limit to 5 requests per minute
-def verify_otp(request: Request, otp_request: VerifyOTPRequest, db: Session = Depends(get_db)):
+def verify_otp(response: Response, request: Request, otp_request: VerifyOTPRequest, db: Session = Depends(get_db)):
     otp_record = db.query(OTP).filter(
         OTP.email == request.email,
         OTP.purpose == "registration"
@@ -145,3 +148,25 @@ def verify_otp(request: Request, otp_request: VerifyOTPRequest, db: Session = De
     db.delete(registration)
     db.delete(otp_record)
     db.commit()
+    access_token = create_access_token(user.id)
+    refresh_token = create_refresh_token(user.id)
+    response.set_cookie(
+    key="access_token",
+    value=access_token,
+    httponly=True,
+    secure=False,      # True in production with HTTPS
+    samesite="lax",
+    max_age=30 * 60,
+    )
+    response.set_cookie(
+        key="refresh_token",
+        value=refresh_token,
+        httponly=True,
+        secure=False,      # True in production with HTTPS
+        samesite="lax",
+        max_age=7 * 24 * 60 * 60,
+    )
+    return {
+        "message": "OTP verified and user registered successfully.",
+    }
+
