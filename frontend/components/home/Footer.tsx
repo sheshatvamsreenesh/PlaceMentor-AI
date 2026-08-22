@@ -1,9 +1,7 @@
 "use client";
 import Brand from "../brand";
-import {
-  ArrowUp,
-} from "lucide-react";
-
+import { ArrowUp } from "lucide-react";
+import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -33,35 +31,37 @@ export default function Footer() {
               and corporate interviews.
             </p>
 
-            {/* Social Icons */}
-            <div className="mt-7 flex items-center gap-3">
+        {/* Social Icons */}
+        <div className="mt-7 flex items-center gap-3">
 
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
-              >
-                <span className="text-[15px] font-bold">in</span>
-              </a>
+        {/* LinkedIn */}
+        <a
+             href="#"
+            aria-label="LinkedIn"
+            className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
+        >
+        <FaLinkedinIn className="h-4 w-4" />
+        </a>
 
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
-              >
-                <span className="text-[15px] font-bold">◎</span>
-              </a>
+        {/* Instagram */}
+        <a
+            href="#"
+            aria-label="Instagram"
+            className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
+        >
+        <FaInstagram className="h-4 w-4" />
+        </a>
 
-              <a
-                href="#"
-                aria-label="GitHub"
-                className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
-              >
-                <span className="text-[15px] font-bold">GH</span>
-              </a>
-
-            </div>
-          </div>
+        {/* GitHub */}
+        <a
+          href="#"
+          aria-label="GitHub"
+          className="flex h-10 w-10 items-center justify-center rounded-[9px] bg-slate-800 text-slate-300 transition hover:bg-blue-600 hover:text-white"
+        >
+        <FaGithub className="h-4 w-4" />
+        </a>
+    </div>
+</div>
 
           {/* COMPANY */}
           <div>
