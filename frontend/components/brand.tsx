@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export default function Brand({className = ""}) {
+export default function Brand({
+  className = "",
+  footer = false,
+}: {
+  className?: string;
+  footer?: boolean;
+}) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <Image
@@ -13,14 +19,20 @@ export default function Brand({className = ""}) {
       />
 
       <div className="flex flex-col">
-        <h1 className="text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+        <h1
+          className={`text-xl font-bold tracking-tight md:text-2xl ${
+            footer ? "text-white" : "text-slate-900"
+          }`}
+        >
           PlaceMentor{" "}
           <span className="text-[#2472CE]">AI</span>
         </h1>
 
-        <p className="text-xs text-slate-500 md:text-sm">
-          Smart Career Guidance
-        </p>
+        {!footer && (
+          <p className="text-xs text-slate-500 md:text-sm">
+            Smart Career Guidance
+          </p>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import WhyChoose from "@/components/home/WhyChoose";
 import StudentSuccessStories from "@/components/home/StudentSuccessStories";
 import FAQ from "@/components/home/FAQ";
 import ContactUs from "@/components/home/ContactUs";
+import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <StudentSuccessStories />
       <FAQ />
       <ContactUs />
+      <Footer />
     </>
   );
 }
