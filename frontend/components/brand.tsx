@@ -1,12 +1,6 @@
 import Image from "next/image";
 
-export default function Brand({
-  className = "",
-  footer = false,
-}: {
-  className?: string;
-  footer?: boolean;
-}) {
+export default function Brand({ className = "", footer = false }) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <Image
@@ -28,11 +22,13 @@ export default function Brand({
           <span className="text-[#2472CE]">AI</span>
         </h1>
 
-        {!footer && (
-          <p className="text-xs text-slate-500 md:text-sm">
-            Smart Career Guidance
-          </p>
-        )}
+        <p
+          className={`text-xs md:text-sm ${
+            footer ? "text-slate-400" : "text-slate-500"
+          }`}
+        >
+          Smart Career Guidance
+        </p>
       </div>
     </div>
   );
